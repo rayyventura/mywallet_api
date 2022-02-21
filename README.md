@@ -8,14 +8,15 @@ available at:https://github.com/rayyventura/my-account
 
 ## How to Run
 
-First, clone the repository or download the ZIP, then execute on the terminal the following steps
-</br>
+1º Clone this repository
+
+2º Install the dependencies
 ```bash
 npm i
 ```
- </br>
- 
+
+3º Run with
 ```bash
-npm run start
+npm start
 ```
 
