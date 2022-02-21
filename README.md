@@ -4,7 +4,7 @@ A back-end aplication utilizing the express library to simplify the HTTP comunic
 
 ## About
 API of an application to keep track of your financial life. 
-available at:https://github.com/rayyventura/my-account
+available at: https://github.com/rayyventura/my-account
 
 ## How to Run
 
