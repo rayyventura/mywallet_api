@@ -106,8 +106,9 @@ app.get('/records', async(req,res)=>{
          
          const user = await db.collection('users').findOne({_id:session.idUser});
          const transactions = await db.collection('transactions').find({idUser:session.idUser}).toArray();
+         const total = await db.collection('total').findOne({name:'total'});
 
-         res.send({name:user.name, transactions});
+         res.send({name:user.name, transactions,total});
      }catch(err){
          console.log(err);
          return res.sendStatus(500);
@@ -135,6 +136,7 @@ if(!user){
     return sendStatus(401);
 }
 
+await db.collection("total").updateOne({name:'total'},{$set:{total:total+transaction.value}});
 await db.collection("transactions").insertOne({
     ...transaction, 
     type:'income',
@@ -171,6 +173,7 @@ if(!user){
     return sendStatus(401);
 }
 
+await db.collection("total").updateOne({name:'total'},{$set:{total:total-transaction.value}});
 await db.collection("transactions").insertOne({
     ...transaction, 
     type:'outcome',
@@ -184,6 +187,7 @@ res.sendStatus(201)
 }
 
 })
+
 app.listen(process.env.PORT,()=> console.log("Initialized Server..."))
 
 
