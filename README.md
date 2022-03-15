@@ -1,4 +1,4 @@
-# My Account
+# My Wallet
 
 A back-end aplication utilizing the express library to simplify the HTTP comunication client-server
 
